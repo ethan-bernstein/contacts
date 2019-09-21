@@ -1,2 +1,1 @@
-# contacts
-contacts
+contacts coding exercise
