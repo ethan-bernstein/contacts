@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity implements SnapPositionHelpe
             public void onChanged(List<Contact> contactList) {
                 mAvatarListAdapter.setContactList(contactList);
                 mDetailsListAdapter.setContactList(contactList);
-                findViewById(R.id.main_layout).forceLayout();
             }
         });
 
@@ -104,13 +103,16 @@ public class MainActivity extends AppCompatActivity implements SnapPositionHelpe
                     mAvatarList.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                     int position = mViewModel.getSelectedPosition().getValue();
                     int avatarItemWidth = mAvatarList.getLayoutManager().findViewByPosition(position).getMeasuredWidth();
-
                     mAvatarListPadding = (mAvatarList.getMeasuredWidth() - avatarItemWidth) / 2;
-                    mAvatarList.setPadding(mAvatarListPadding, mAvatarList.getPaddingTop(), mAvatarListPadding, mAvatarList.getPaddingBottom());
+                    int avatarVerticalPadding = (int)getResources().getDimension(R.dimen.avatar_list_vertical_padding);
+                    mAvatarList.setPadding(mAvatarListPadding, avatarVerticalPadding, mAvatarListPadding, avatarVerticalPadding);
+                    mAvatarList.scrollToPosition(position);
 
-                    // Select the first contact to force the views to adjust correctly after
-                    // setting padding.
-                    mViewModel.getSelectedPosition().setValue(position);
+                    // Work around RecyclerView wrap_content issue
+                    mAvatarList.getLayoutManager().requestLayout();
+                    for (int i = 0; i < mAvatarList.getLayoutManager().getChildCount(); i++) {
+                        mAvatarList.getLayoutManager().getChildAt(i).forceLayout();
+                    }
                 }
             }
         });

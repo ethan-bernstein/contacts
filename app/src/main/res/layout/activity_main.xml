@@ -13,11 +13,15 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:clipToPadding="false"
-        android:padding="@dimen/avatar_list_padding" />
+        android:paddingTop="@dimen/avatar_list_vertical_padding"
+        android:paddingBottom="@dimen/avatar_list_vertical_padding" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/detailsList"
-        android:padding="@dimen/details_list_horizontal_padding"
+        android:paddingLeft="@dimen/details_list_horizontal_padding"
+        android:paddingStart="@dimen/details_list_horizontal_padding"
+        android:paddingRight="@dimen/details_list_horizontal_padding"
+        android:paddingEnd="@dimen/details_list_horizontal_padding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/avatarList" />
