@@ -107,12 +107,6 @@ public class MainActivity extends AppCompatActivity implements SnapPositionHelpe
                     int avatarVerticalPadding = (int)getResources().getDimension(R.dimen.avatar_list_vertical_padding);
                     mAvatarList.setPadding(mAvatarListPadding, avatarVerticalPadding, mAvatarListPadding, avatarVerticalPadding);
                     mAvatarList.scrollToPosition(position);
-
-                    // Work around RecyclerView wrap_content issue
-                    mAvatarList.getLayoutManager().requestLayout();
-                    for (int i = 0; i < mAvatarList.getLayoutManager().getChildCount(); i++) {
-                        mAvatarList.getLayoutManager().getChildAt(i).forceLayout();
-                    }
                 }
             }
         });

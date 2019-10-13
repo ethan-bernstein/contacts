@@ -10,7 +10,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/avatarList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/avatar_list_height"
         android:layout_alignParentTop="true"
         android:clipToPadding="false"
         android:paddingTop="@dimen/avatar_list_vertical_padding"
