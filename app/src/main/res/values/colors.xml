@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="colorPrimary">@android:color/darker_gray</color>
-    <color name="colorPrimaryDark">@android:color/black</color>
-    <color name="colorAccent">#d2e6ea</color>
-    <color name="avatar_selection">@color/colorAccent</color>
-</resources>
