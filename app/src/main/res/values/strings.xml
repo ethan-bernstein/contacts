@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Contacts</string>
+    <string name="details_introduction_heading">About me</string>
+    <string name="appbar_title">Contacts</string>
+</resources>
